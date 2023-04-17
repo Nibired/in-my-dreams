@@ -1,0 +1,68 @@
+
+
+
+<header class="headerAccueil">
+  <nav class="nav-accueil">
+     <div class="dec-part-matchez">
+        <h1 class="h1-logo-inmydreams">In My Dreams</h1>
+        <p class="p-logo-inmydreams">Découvrez, partagez ... <span class="matchez">Matchez!</span></p>
+      </div>
+
+      <div id="notification-container" class="notification-container"></div>
+
+    <div class="nav-accueil-articles">
+          <ul class="ul_accueil-articles">
+            <li><a href="index.php?page=index&action=view" class="btn">Accueil</a></li>
+            <li><a href="index.php?page=a-propos&action=view" class="btn">A propos</a></li>
+            <li><a href="index.php?page=qcm&action=view" class="btn">Qcm</a></li>
+            <li><a href="index.php?page=chat&action=view" class="btn">Chat</a></li>
+          </ul>
+              
+
+          <ul class="nav-pub-users">
+            <li>
+              <select onchange="window.location.href=this.value">
+                <option value="#">Publications</option>
+                <option value="index.php?page=share-dream&action=view">Partager un rêve</option>
+                <option value="index.php?page=plus-populaires&action=list">Les + populaires</option>
+                <option value="index.php?page=categ-reves&action=list">Catégories rêves</option>
+                <option value="index.php?page=rech-reves&action=list">Rechercher Rêves</option>
+             </select>
+            </li>
+          
+
+            <li>
+              <select onchange="window.location.href=this.value">
+                <option value="#">Utilisateurs</option>
+                <option value="index.php?page=rech-utilisateurs&action=list">Rechercher Utilisateurs</option>
+                <option value="index.php?page=utilisateur&action=list">Tous les Utilisateurs</option>
+              </select>
+            </li>
+          </ul>
+    </div>
+
+
+   
+
+       
+    <div class="nav-ins-co">
+    <ul class="ul-nav-ins-co">
+        <?php 
+        if (isset($_SESSION['login']) && $_SESSION['login'] != ''){
+            print '<li><a href="index.php?page=user-dashboard&action=view" class="btn_co-deco">Tableau de bord</a></li>';
+            print '<li><a href="index.php?page=frm-connexion&action=logout" class="btn_co-deco">Déconnexion</a></li>';
+        }else{
+            print '<li><a href="index.php?page=frm-connexion&action=login" class="btn_co-deco"">Connexion</a></li>';
+            print '<li><a href="index.php?page=frm-inscript&action=view"class="btn_co-deco">S\'inscrire</a></li>';
+        }
+        ?>
+    </ul>
+</div>
+      
+
+      
+        
+    </nav>
+ 
+</header>
+

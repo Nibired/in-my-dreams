@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+  </head>
+<body>
+	<header>
+        <nav>
+            <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>       
+        </nav>
+    </header>
+    <main>
+        <section class="dream-search">
+                <h2>Recherche de rêves</h2>
+                <form class="rech-reves" method="POST" action="index.php?page=rech-reves&action=submit">
+                    <label for="MOT_CLE">Rechercher par mots clés:</label>
+                    <input type="text" id="MOT_CLE" name="MOT_CLE">
+
+                    <label for="pseudo">Rechercher par pseudo:</label>
+                    <input type="text" id="pseudo" name="pseudo">
+
+                    <label for="id_type_reve">Filtrer par catégorie:</label>
+                        <select id="id_type_reve" name="id_type_reve">   
+                            <option value="id_type_reve">Sélectionnez une catégorie</option>
+                                <option value="1">Rêve lucide</option>
+                                <option value="2">Rêve prémonitoire</option>
+                                <option value="3">Rêve récurrent</option>
+                                <option value="6">Rêve collectif</option>
+                                <option value="22">Rêve amoureux</option>
+                                <option value="23">Rêve érotique</option>
+                                <option value="32">Rêve terrifiant</option>
+                                <option value="35">Rêve de catastrophe</option>
+                                <option value="36">Rêve funebre</option>
+                                <option value="38">Rêve d'abandon</option>
+                                <option value="40">Rêve d'échec</option>
+                        </select>
+                    <label for="id_sexe">Filtrer par sexe:</label>
+                        <select id="id_sexe" name="id_sexe">
+                            <option value="">--Tous les sexes--</option>
+                            <option value="1">Femme</option>
+                            <option value="2">Homme</option>
+                            <option value="3">Autre</option>
+                        </select>
+                    <button type="submit">Rechercher</button>
+                </form>
+        </section>
+        </main> 
+    <footer>
+        <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+    </footer> 
+</body>
+</html>

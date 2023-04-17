@@ -1,0 +1,65 @@
+<?php
+
+require_once __DIR__ . '/../dao/dao_categ_reves.php';
+$id_utilisateur = getIdUtilisateur();
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>Rêves érotiques</title>
+  </head>
+<body>
+    <main>
+        <nav>
+            <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>       
+        </nav>
+        <header>
+            <h1 class="titre-type-reve">Rêves érotiques</h1>
+        </header>
+        <section class="definition-type-reve">
+            <h2 class="sous-titre-categ">Qu'est-ce qu'un rêve érotique ?</h2>
+            <p class="descript-categ-reves"></p>
+
+            <h3 class="h3-liste-reves">Liste des rêves</h3>
+                <div class="categ-liste-reves" id="liste-reves">
+                    <?php  
+                    $reves = afficherTypeErotique() ; 
+                    foreach ($reves as $reve) {
+                        echo '<div class="reve">';
+                        echo '<h4 class="titre-categ-reve">' . $reve['Titre_Reve'] . '</h4>';
+                        echo '<p class="libelle-categ-reve">' . $reve['Libelle_Reve'] . '</p>';
+                        echo '<p class="info-categ-reve italic">';
+                        echo 'Publié par ' . $reve['pseudo'] . ' le ' . $reve['Date_Creation_Reve'];
+                        echo '</p>';
+                        echo '<div class="note" data-id="' . $reve['id_reve'] . '" data-note="' . $reve['note'] . '">';
+                        echo 'Note : ' . $reve['note'] . '/5';
+                        echo '</div>';
+                        echo '<div class="rating" data-id="' . $reve['id_reve'] . '">';
+                        echo '<span class="star" data-value="1">&#9733;</span>';
+                        echo '<span class="star" data-value="2">&#9733;</span>';
+                        echo '<span class="star" data-value="3">&#9733;</span>';
+                        echo '<span class="star" data-value="4">&#9733;</span>';
+                        echo '<span class="star" data-value="5">★</span>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+                
+  
+</div>
+        </section>
+    </main>
+    <footer>
+        <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+    </footer>
+    <script type="module" src="/inmydreams/dreams/js/script.js"></script>
+    
+</body>
+</html>

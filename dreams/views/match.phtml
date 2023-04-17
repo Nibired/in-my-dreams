@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+</head>
+<body>
+
+    <header> 
+        <nav> 
+        <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>    
+    </nav>   
+</header>
+<main> 
+    <div class="reponse-container center-middle">
+        <div class="matching-users-container">
+            <section class="matching-users">
+                <h2>Merci d'avoir rempli notre QCM, voici les membres qui ont des réponses similaires aux vôtres :</h2>
+                    <ul>
+                        <?php if (isset($matchingUsers) && count($matchingUsers) > 0) { ?>
+                        <?php foreach ($matchingUsers as $match) { ?>
+                            <li><a href="index.php?page=utilisateur&action=page-user&id_utilisateur=<?= urlencode($match['user2']) ?>">Membre <?= htmlspecialchars($match['pseudo']) ?></a> - <?= $match['matching_answers'] ?> réponses similaires</li>
+                        <?php } ?>
+                        <?php } else { ?>
+                            <li>Aucun match pour le moment</li>
+                        <?php } ?>
+                    </ul>
+            </section>
+        </div>
+    </div>
+</main>
+<footer>
+    <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,56 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+  </head>
+
+  <body>
+    <div class="page-container">
+      <header>
+        <nav>
+          <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>
+        </nav>
+      </header>
+      <main class="main-share-dreams">
+        <section class="share-dream">
+          <h2 class="titre-partag-reve">Partagez votre rêve</h2>
+
+          <form method="post" action="index.php?page=share-dream&action=submit" enctype="multipart/form-data">
+            <label for="Titre_Reve">Titre de votre rêve:</label>
+            <input type="text" id="Titre_Reve" name="Titre_Reve" required>
+
+            <label for="id_type_reve">Catégorie de votre rêve:</label>
+            <select id="id_type_reve" name="id_type_reve" required>
+            <option class="default-option" value="">--Choisir une catégorie--</option>
+                  <option value="1">Rêve lucide</option>
+                  <option value="2">Rêve prémonitoire</option>
+                  <option value="3">Rêve récurrent</option>                
+                  <option value="6">Rêve collectif</option>                
+                  <option value="22">Rêve amoureux</option>
+                  <option value="23">Rêve érotique</option>               
+                  <option value="32">Rêve terrifiant</option>                
+                  <option value="35">Rêve de catastrophe</option>
+                  <option value="36">Rêve funebre</option>               
+                  <option value="38">Rêve d'abandon</option>
+                  <option value="40">Rêve d'échec</option>                 
+        </select>
+              <label for="Libelle_Reve">Description de votre rêve:</label>
+                  <textarea id="Libelle_Reve" name="Libelle_Reve" rows="10" required></textarea>
+
+              <button type="submit">Partager</button>
+      </form>
+      </section>    
+      </main>
+    <footer>
+        <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+    </footer>
+</body>
+</html>

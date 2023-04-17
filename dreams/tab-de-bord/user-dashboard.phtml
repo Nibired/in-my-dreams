@@ -1,0 +1,141 @@
+<?php
+
+
+$utilisateur = $_SESSION['utilisateur'] ?? null;
+$reves = $_SESSION['reves'] ?? null;
+$reves_favoris = $_SESSION['reves_favoris'] ?? null;
+$utilisateursFav = $_SESSION['utilisateursFav'] ?? null;
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <base href="/inmydreams/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="dreams/style/style.css">
+    <title>InMyDreams</title>
+  </head>
+
+  <body>
+  
+    <header>
+      <nav class="nav-dashboard">
+      <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>    
+      </nav>
+    </header>
+    <main>
+      <section class="dashboard">
+      <div class="titre-tab-bord">
+        <h1 class="tab-bord-h1">Tableau de bord</h1>
+      </div>
+        <h2 class="info-perso-h2">Informations personnelles</h2>
+          <div class="user-infos-dashboard">
+            <form class="avatar-container" action="/inmydreams/controllers/utilisateurController.php?action=upload" method="post" enctype="multipart/form-data">
+              <img class="img-avatar-dashboard" src="<?= !empty($utilisateur['avatar']) ? strip_tags($utilisateur['avatar']) : '/inmydreams/dreams/avatars/avatar.png' ?>" alt="Avatar de <?=strip_tags($utilisateur['pseudo'])?>">
+                <div class="upload-buttons">
+                  <input type="file" name="fileToUpload" id="fileToUpload">
+                  <input type="submit" value="Télécharger" name="submit">
+                </div>
+            </form>
+        <div class="details-user-dashboard">
+          <ul class="infos-detail-dashboard">
+          <li class="pseudo-dashboard">Pseudo : <?= isset($utilisateur['pseudo']) ? htmlspecialchars((string) $utilisateur['pseudo']) : '' ?></li>
+          <li class="prenom-dashboard">Prénom : <?= isset($utilisateur['prenom']) ? htmlspecialchars((string) $utilisateur['prenom']) : '' ?></li>
+          <li class="age-dashboard">Âge : <?= isset($utilisateur['date_naissance']) ? htmlspecialchars((string) $utilisateur['date_naissance']) : '' ?></li>
+          <li class="sexe-dashboard">Sexe : </li> 
+          <li class="ville-dashboard">Ville : <?= isset($utilisateur['Libelle_ville']) ? htmlspecialchars($utilisateur['Libelle_ville']) : '' ?></li>
+          <li class="descript-dashboard">Description : <?= isset($utilisateur['descript']) ? htmlspecialchars($utilisateur['descript']) : '' ?></li>
+        </ul>
+      </div>
+</div>
+
+      
+      <h2 class="reve-publi-dashboard">Mes rêves publiés</h2>
+        <div class="reves-pub-dashboard">
+          <table class="tab-reve-publi-dashboard">
+            <thead>
+              <tr>
+                <th>Titre</th>
+                <th>Date</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+              <tbody>
+                <?php if (is_array($reves)): ?>
+                  <?php foreach ($reves as $reve): ?>
+                    <tr>
+                      <td><?php echo htmlspecialchars($reve['Titre_Reve']); ?></td>
+                      <td><?php echo htmlspecialchars($reve['Date_Creation_Reve']); ?></td>
+                      <td><?php echo htmlspecialchars($reve['Libelle_Reve']); ?></td>
+                    </tr>
+                  <?php endforeach; ?>
+                <?php endif; ?>
+              </tbody>
+          </table>
+        </div>
+
+        <h2>Mes rêves favoris</h2>
+          <div class="reve-fav-dashboard">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th class="custom-table-header">Titre</th>
+                  <th class="custom-table-header">Date</th>
+                  <th class="custom-table-header">Description</th>
+                  <th>Auteur</th>
+                </tr>
+              </thead>
+                <tbody>
+                  <?php if (is_array($reves_favoris)): ?>
+                    <?php foreach ($reves_favoris as $reve): ?>
+                      <tr class="custom-table-row">
+                        <td class="custom-table-cell"><?php echo htmlspecialchars($reve['Titre_Reve']); ?></td>
+                        <td class="custom-table-cell"><?php echo htmlspecialchars($reve['Date_Creation_Reve']); ?></td>
+                        <td class="custom-table-cell"><?php echo htmlspecialchars($reve['Libelle_Reve']); ?></td>
+                        <td><?php echo htmlspecialchars($reve['pseudo']); ?></td>
+                      </tr>
+                    <?php endforeach; ?>
+                  <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Mes membres favoris</h2>
+          <div class="member-fav-dashboard">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pseudo</th>
+                </tr>
+              </thead>
+                <tbody>
+                  <?php if (is_array($utilisateursFav)): ?>
+                    <?php foreach ($utilisateursFav as $favori): ?>
+                      <tr>
+                        <td><?= isset($favori['pseudo']) ? htmlspecialchars($favori['pseudo']) : '' ?></td>
+                        <td>
+                          <?php if (isset($favori['id_utilisateur']) && $favori['id_utilisateur'] !== ''): ?>
+                            <button class="favorite-heart" id="favorite-heart-<?= isset($favori['id_utilisateur']) ? htmlspecialchars($favori['id_utilisateur'], ENT_QUOTES, 'UTF-8') : '' ?>" data-id_utilisateur_suivre="<?= isset($favori['id_utilisateur']) ? htmlspecialchars($favori['id_utilisateur'], ENT_QUOTES, 'UTF-8') : '' ?>">&#x2764;</button>
+                <?php endif; ?>
+                  </td>
+      </tr>
+    <?php endforeach; ?>
+  <?php endif; ?>
+</tbody>
+</table>
+  </div>
+
+
+      </section>
+    </main>
+
+    <footer>
+    <?php require_once __DIR__ . '/../partials/footer.phtml'; ?> 
+    </footer>
+    <script src="dreams/js/fav.js"></script>
+  </body>
+</html>

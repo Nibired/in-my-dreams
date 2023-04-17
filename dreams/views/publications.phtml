@@ -1,0 +1,71 @@
+<?php
+/**
+ * @var $lesPublications Liste des publications
+ */
+
+ ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+  </head>
+<body>
+    
+
+        <nav>
+        <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>     
+        </nav>
+        <header>
+            <h1>Publications</h1>
+        </header>
+        <main>
+        <p>
+          <?php
+              foreach($lesPublications as $unePublication){
+                print('<li>'.$unePublication.'</li>');
+              };
+          ?>
+        </p>
+
+    <section class="recent-dreams">
+        <h3>Rêves publiés</h3>
+      <div class="dream-item">
+        <p>Rêve 1</p>
+        <p>Posté par Utilisateur 1</p>
+      </div>
+      <div class="dream-item">
+        <p>Rêve 2</p>
+        <p>Posté par Utilisateur 2</p>
+      </div>
+      <div class="dream-item">
+        <p>Rêve 3</p>
+        <p>Posté par Utilisateur 3</p>
+      </div>
+      <div class="dream-item">
+        <p>Rêve 4</p>
+        <p>Posté par Utilisateur 4</p>
+      </div>
+      <div class="dream-item">
+        <p>Rêve 5</p>
+        <p>Posté par Utilisateur 5</p>
+      </div>
+      <div class="dream-item">
+        <p>Rêve 6</p>
+        <p>Posté par Utilisateur 6</p>
+      </div>
+    </section>
+    </main>
+    
+    <footer>
+<?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+</footer>
+
+</body>
+</html>  

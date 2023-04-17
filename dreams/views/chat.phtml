@@ -1,0 +1,68 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+ ?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+	  <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+	  <title>Chat</title>
+  </head>
+<body>
+    
+<header>
+        <nav>
+            <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>       
+        </nav>
+            <h2 class="titre-chat">Echangez avec les autres membres</h2>
+        </header>
+        <main class="main-chat">
+          <div class="card-container">
+            <?php foreach ($membersCo as $memberCo): ?>
+              <div class="card-usersCo" data-userid="<?= $memberCo['id_utilisateur'] ?>">
+            <?php
+              $isOnline = $memberCo['etat'] === 'connecté';
+              $statusClass = $isOnline ? 'online' : 'offline';
+              $buttonText = $isOnline ? 'Tchattez' : 'Envoyer un message';
+            ?>
+          <h3 class="chat-pseudo">
+            <?= $memberCo['pseudo'] ?>
+            <span class="online-status <?= $statusClass ?>"></span>
+          </h3>
+            <p class="chat-prenom"><?= $memberCo['prenom'] ?></p>
+            <p class="chat-dateNaissance"><?= $memberCo['date_naissance'] ?></p>
+            <p class="chat-descript"><?= $memberCo['descript'] ?></p>
+          <div class="card-footer">
+            <a href="index.php?page=utilisateur&action=page-user&id_utilisateur=<?= $memberCo['id_utilisateur'] ?>" class="bouton-chat"><?= $buttonText ?></a>
+          </div>
+        </div>
+          <?php endforeach; ?>
+    </div>
+
+<div id="chat-window" class="chat-window hidden">
+<input type="hidden" id="sender-pseudo" value="<?php echo isset($_SESSION['pseudo']) ? $_SESSION['pseudo'] : ''; ?>">
+  <div id="chat-messages" class="chat-messages"></div> 
+  <input type="text" id="chat-input" class="chat-input" placeholder="Entrez votre message ici..." />
+  <button id="chat-send-btn" class="chat-send-btn">Envoyer</button>
+</div>
+ 
+</main>
+	<footer>
+      <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+  </footer>
+  <script src="/inmydreams/dreams/js/chat.js"></script>
+  <script>
+  window.senderPseudo = <?= json_encode($_SESSION['pseudo'] ?? '') ?>;
+  console.log("Sender Pseudo:", window.senderPseudo);
+  window.senderId = <?= json_encode($_SESSION['id_utilisateur'] ?? '') ?>;
+  console.log("Sender ID:", window.senderId);
+  window.fromUserId = <?php echo $_SESSION['id_utilisateur']; ?>;
+</script>
+</body>
+</html>       

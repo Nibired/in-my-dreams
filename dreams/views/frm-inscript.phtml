@@ -1,0 +1,94 @@
+<?php
+
+require_once __DIR__ . '/../models/config.php';
+require __DIR__ . '/../views/confirmation.phtml';
+
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+  </head>
+
+<body>
+    
+		<header>
+			<nav>
+            	<?php require_once __DIR__ . '/../partials/nav.phtml'; ?>       
+        	</nav>
+			<h2>Formulaire d'inscription</h2>
+		</header>
+		<main>
+
+	<section class="form_connexion">
+		<form class="form_insc" action="routers.php?page=inscription&action=submit" method="post" enctype="multipart/form-data">
+			<div class="div_insc_pseudo">
+				<label  class="form_insc_label" for="pseudo">Pseudo :</label>
+				<input  class="form_co_input" type="text" name="pseudo" id="pseudo" required>
+			</div>
+			<div class="div_insc_prenom">
+				<label class="form_insc_label" for="prenom">Prénom :</label>
+				<input class="form_co_input"  type="text" name="prenom" id="prenom" required>
+			</div>
+			<div class="div_insc_dateNaissance">
+				<label class="form_insc_label" for="date_naissance">Date de naissance :</label>
+				<input class="form_co_input"  type="date" name="date_naissance" id="date_naissance" required>
+			</div>
+			<div class="div_insc_email">
+				<label class="form_insc_label" for="email">Email :</label>
+				<input class="form_co_input"  type="email" name="email" id="email" required>
+			</div>
+			<div class="div_insc_mdp">
+				<label class="form_insc_label" for="mdp">Mot de passe :</label>
+				<input class="form_co_input"  type="password" name="mdp" id="mdp" required>
+			</div>
+			<div class="div_insc_sexe">
+				<label class="form_insc_label" for="id_sexe">Sexe :</label>
+				<select class="form_insc_select"name="id_sexe" id="id_sexe">
+					<option value="1">Femme</option>
+					<option value="2">Homme</option>
+					<option value="3">Autre</option>
+				</select>
+			</div>
+			<div class="div_insc_ville">
+				<label class="form_insc_label"for="id_cp_ville">Ville et Code postal :</label>
+				<select name="id_cp_ville" id="id_cp_ville" required>
+					<option value="">Sélectionnez une ville</option>
+					<option value="1">Paris (75000)</option>
+					<option value="2">Marseille (13000)</option>
+					<option value="3">Lyon (69000)</option>
+					<option value="4">Toulouse (31000)</option>
+					<option value="5">Nice (06000)</option>
+					<option value="6">Nantes (44000)</option>
+					<option value="7">Strasbourg (67000)</option>
+					<option value="8">Montpellier (34000)</option>
+					<option value="9">Bordeaux (33000)</option>
+					<option value="10">Lille (59000)</option>
+				</select>
+			</div>
+			<div class="div_insc_descript">
+				<label class="form_insc_label"for="descript">Description :</label>
+				<textarea name="descript" id="descript"></textarea>
+			</div>
+			<div class="div_insc_avatar">
+          		<label class="form_insc_label"for="avatar">Avatar :</label>
+          		<input class="form_co_input" type="file" name="avatar" id="avatar">
+        	</div>
+				<input class="form_insc_submit" type="submit" value="Valider">
+		</form>
+		</section>
+</main>
+
+	<footer>
+		<?php require_once __DIR__ . '/../partials/footer.phtml'; ?>
+	</footer>
+</body>
+</html>

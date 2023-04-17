@@ -1,0 +1,178 @@
+<?php
+require_once __DIR__ . "/../dao/dao_Utilisateur.php";
+require_once __DIR__ . "/../dao/dao_match.php"; 
+require_once __DIR__ . "/../controllers/temoignageController.php";
+
+
+$lastMembers = getLastMembers();
+$numberOfLastMembers = count($lastMembers); 
+
+$latestMatches = getLatestMatches();
+$numberOfLastMatches = count($latestMatches); 
+
+$limit = 10;
+$latestTemoignages = getLatestTemoignages($limit);
+$numberOfLastTemoignages = count($latestTemoignages);
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+</head>
+
+<body>
+
+
+    <header>
+        <nav>
+            <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>       
+         </nav>    
+    </header>
+    
+    <main>
+
+
+  <div class="container-title-inmydreams">
+      <h1 class="anim-title-inmydreams"> Bienvenue rêveurs ! </h1> 
+  </div>
+
+  <div class="accueil-presentation-container">
+    <div class="accueil-presentation-slide accueil-presentation-active">
+      <h3><a href="index.php?page=categ-reves&action=list">Découvrez...</a></h3>
+    </div>
+    <div class="accueil-presentation-slide1 accueil-presentation-slide">
+      <h3><a href="index.php?page=share-dream&action=view">Partagez...</a></h3>
+    </div>
+    <div class="accueil-presentation-slide2 accueil-presentation-slide">
+      <h3><a href="index.php?page=qcm&action=view">Matchez!</a></h3>
+    </div>
+    <div class="accueil-presentation-slide3 accueil-presentation-slide">
+      <h3><a href="index.php?page=chat&action=view">Tchattez</a></h3>
+    </div>
+    <div class="accueil-presentation-slide4 accueil-presentation-slide">
+      <h3><a href="index.php?page=view&action=temoignage">Racontez</a></h3>
+    </div>
+  </div>
+
+   
+    <section class="last-publi-regist-match-top-tem">
+      <h2 class="titre_last-publi">Dernières publications</h2>
+        <div class="last-publications">
+          <a href="dreams/views/last_publi.phtml?id_famille_reve=1" class="card-last-publi">
+            <div class="dreams" id="dreams">
+            <img src="/inmydreams/dreams/img/bed-water.gif" alt="imageReves">
+                <div class="card-text">
+                  <h3>Rêves</h3>                
+                </div>
+            </div>
+          </a>
+
+    <a href="dreams/views/last_publi.phtml?id_famille_reve=2" class="card-last-publi">
+      <div class="nightmares" id="nightmares">
+      <img src="/inmydreams/dreams/img/nightmare-fredbear-fnaf.gif" alt="imageCauchemars">
+          <div class="card-text">
+            <h3>Cauchemars</h3>         
+          </div>
+      </div>
+    </a>
+</div>
+</section>
+
+
+<section>
+<h2 class="titre_last-members">Derniers membres inscrits</h2>
+<div class="outer-container">
+    <div class="container-last-members-controls">
+        <button id="previous" class="previous-button">&larr;</button>
+        <div class="container-last-members">
+            <div class="card-slider-members">
+            <?php
+            function truncate_description($string, $length = 3, $dots = "...") {
+                $parts = preg_split('/\s+/', $string);
+                $truncated = array_slice($parts, 0, $length);
+                return implode(' ', $truncated) . $dots;
+            }
+            ?>
+            <?php if (isset($lastMembers) && is_array($lastMembers)): ?>
+                <?php foreach ($lastMembers as $lastMember): ?>
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <img class="card-img-top" src="https://picsum.photos/seed/picsum/200/200" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title pseudo-last-members"><?= htmlspecialchars($lastMember['pseudo']) ?></h5>
+                                <p class="card-text pseudo-last-members">
+                                <?= truncate_description(htmlspecialchars($lastMember['descript'] ?? '')) ?></p>
+                                <a href="index.php?page=utilisateur&action=page-user&id_utilisateur=<?= $lastMember['id_utilisateur'] ?>" 
+                                class="btn-member btn-primary">En savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            </div>
+        </div>
+        <button id="next" class="next-button">&rarr;</button>
+    </div>
+</div>
+</section>
+
+
+<section class="matched-users">
+  <h2 class="titre-match-semaine">Match de la semaine!</h2>
+  <div class="cards-wrapper">
+    <?php if (isset($latestMatches) && is_array($latestMatches)): ?>
+      <?php foreach ($latestMatches as $index => $match) : ?>
+        <div class="card-match">
+          <h3><?= htmlspecialchars($match['pseudo']) ?></h3>
+          <p><?= htmlspecialchars($match['descript']) ?></p>
+          <a href="index.php?page=utilisateur&action=page-user&id_utilisateur=<?= urlencode($match['id_utilisateur']) ?>"
+          class="btn-en-savoir-plus">En savoir plus</a>
+        </div>
+      <?php endforeach; ?>
+    <?php endif; ?>
+  </div>
+</section>
+
+
+<section id="temoignages-list" class="section-temoignages">
+    <h2 class="titre-temoignages">Témoignages</h2>
+    <h3 class="partagez-experience">Partagez votre expérience ici</h3>
+    <form id="temoignage-form" action="temoignageController.php" method="post">
+        <input type="text" name="libelle_temoignage" placeholder="Écrivez votre témoignage ici" required>
+        <button type="submit" name="submit_temoignage">Valider</button>
+    </form>
+    <?php foreach ($latestTemoignages as $temoignage) : ?>
+        <div class="temoignage">
+        <img src="/inmydreams/dreams/img/circuitLove.jpg" alt="Témoignage">
+            <div class="temoignage-text">
+                <h3 class="pseudo-temoin"><?= htmlspecialchars($temoignage->getPseudo()) ?></h3>
+                <p><?= htmlspecialchars($temoignage->getLibelleTemoignage()) ?></p>
+                <small class="date-temoin"><?= $temoignage->getDateTemoignage()->format('d/m/Y') ?></small>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</section>
+
+<button id="back-to-top" title="Retour en haut">
+  <i class="fas fa-arrow-up"></i>
+</button>
+  
+</main>
+<footer>
+    <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+</footer>
+
+<script  src="/inmydreams/dreams/js/script-accueil.js"></script>
+<script src="/inmydreams/dreams/js/last-publications.js"></script>
+
+</body>
+</html>

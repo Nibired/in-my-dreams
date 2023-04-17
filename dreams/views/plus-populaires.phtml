@@ -1,0 +1,43 @@
+<?php
+require_once __DIR__ . '/../dao/dao_populaire.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+</head>
+
+<body>
+    <header class="header-style">
+        <nav>
+            <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>       
+         </nav>    
+    </header>
+    <main>
+        <section class="les-plus-populaires">
+            <h2 class="popular-title">Les + populaires</h2>
+            <p class="popular-intro">Voici les rêves les plus populaires sur InMyDreams :</p>
+            <?php
+                $topRatedDreams = getTopRatedDreams();
+                foreach ($topRatedDreams as $reve) {
+            ?>
+                <div class="dream-item popular-item">
+                    <p class="dream-title"><?php echo htmlspecialchars($reve['Titre_Reve']); ?></p>
+                    <p class="dream-description"><?php echo htmlspecialchars($reve['Libelle_Reve']); ?></p>
+                    <p class="dream-author">Posté par <?php echo htmlspecialchars($reve['pseudo']); ?> le <?php echo htmlspecialchars($reve['Date_Creation_Reve']); ?></p>
+                </div>
+            <?php } ?>
+        </section>
+    </main>
+    <footer>
+        <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+    </footer>
+    <script src="/inmydreams/dreams/js/script.js"></script>
+</body>
+</html>

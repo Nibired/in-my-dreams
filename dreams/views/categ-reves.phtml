@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+  </head>
+<body>
+    
+		<header>
+        <nav>
+            <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>       
+        </nav>
+        </header>
+        <main>
+
+        <section class="famille-categ">
+          
+          <h2 class="titre-categ-reves" >Catégories rêves</h2>
+            <div class="famille-reves button-group">
+              <a href="index.php?page=categ-reves&action=lucide"><button class="card-categ">Lucide</button></a>
+              <a href="index.php?page=categ-reves&action=premonitoire"><button class="card-categ">Rêve prémonitoire</button></a>
+              <a href="index.php?page=categ-reves&action=recurrent"><button class="card-categ">Rêve récurrent</button></a>
+              <a href="index.php?page=categ-reves&action=collectif"><button class="card-categ">Rêve collectif</button></a>
+              <a href="index.php?page=categ-reves&action=amoureux"><button class="card-categ">Rêve amoureux</button></a>
+              <a href="index.php?page=categ-reves&action=erotique"><button class="card-categ">Rêve érotique</button></a>
+            </div>
+
+          <h2 class="titre-categ-cauchemars">Catégories cauchemars</h2>
+            <div class="famille-cauchemars button-group">  
+              <a href="index.php?page=categ-reves&action=terrifiant"><button class="card-categ">Terrifiant</button></a>       
+              <a href="index.php?page=categ-reves&action=catastrophe"><button class="card-categ">Rêve de catastrophe</button></a>
+              <a href="index.php?page=categ-reves&action=funebre"><button class="card-categ">Rêve funèbre</button></a>           
+              <a href="index.php?page=categ-reves&action=abandon"><button class="card-categ">Rêve d'abandon</button></a>           
+              <a href="index.php?page=categ-reves&action=echec"><button class="card-categ">Rêve d'échec</button></a>
+            </div>
+        </section>    
+</main>
+<footer>
+<?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+</footer>
+</body>
+</html>

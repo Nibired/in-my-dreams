@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+</head>
+<body class="body-modern">
+
+        <nav>
+            <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>       
+        </nav>
+   
+    <main>
+
+    <div class="search-users modern-container">
+        <p class="search-intro">Vous recherchez un membre en particulier ? C'est par ici !</p>
+        <form class="form-rech-users modern-form" action="index.php?page=rech-utilisateurs&action=submit" method="post" enctype="multipart/form-data">
+
+            <label class="search-username modern-label" for="pseudo">Pseudo :</label>
+            <input class="modern-input" type="text" id="pseudo" name="pseudo">
+
+            <label class="modern-label" for="id_sexe">Sexe :</label>
+            <select class="modern-input" id="id_sexe" name="id_sexe">
+            <option value="">Sélectionnez un genre</option>
+                <option value="1">Femme</option>
+                <option value="2">Homme</option>
+                <option value="3">Autre</option>
+            </select>
+
+            <label class="modern-label" for="date_naissance">Âge :</label>
+            <input class="search_user_age modern-input" type="number" id="date_naissance" name="date_naissance" min="18" max="120">
+
+            <label class="modern-label" for="id_cp_ville">Ville :</label>
+            <input class="search-user-city modern-input" type="text" id="id_cp_ville" name="id_cp_ville">
+
+            <button class="modern-button" type="submit">Rechercher</button>
+        </form>
+    </div>
+    </main>
+<footer>
+    <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>
+</footer>
+
+
+</body>
+</html>

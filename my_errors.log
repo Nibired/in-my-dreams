@@ -1,0 +1,109 @@
+[15-Mar-2023 16:04:28 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 4
+[15-Mar-2023 16:04:28 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 28
+[15-Mar-2023 16:04:28 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:28
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(92): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 28
+[15-Mar-2023 17:13:15 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 4
+[15-Mar-2023 17:13:15 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[15-Mar-2023 17:13:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(92): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[15-Mar-2023 17:13:37 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 4
+[15-Mar-2023 17:13:37 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[15-Mar-2023 17:13:37 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(92): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[15-Mar-2023 17:18:14 UTC] PHP Warning:  require_once(partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[15-Mar-2023 17:18:14 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(92): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[15-Mar-2023 17:19:41 UTC] PHP Warning:  require_once(../partials/footer.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 115
+[15-Mar-2023 17:19:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/footer.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:115
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(92): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 115
+[15-Mar-2023 17:20:16 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[15-Mar-2023 17:20:16 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(92): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[15-Mar-2023 17:21:17 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 4
+[15-Mar-2023 17:21:17 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[15-Mar-2023 17:21:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(92): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[30-Mar-2023 20:57:06 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 4
+[30-Mar-2023 20:57:06 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[30-Mar-2023 20:57:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(82): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[31-Mar-2023 00:03:58 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 4
+[31-Mar-2023 00:03:58 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[31-Mar-2023 00:03:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(82): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[31-Mar-2023 08:02:12 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 4
+[31-Mar-2023 08:02:12 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[31-Mar-2023 08:02:12 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\dreams\controllers\utilisateurController.php(24): include()
+#1 D:\MAMP\htdocs\InMyDreams\routers.php(82): require_once('D:\\MAMP\\htdocs\\...')
+#2 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#3 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[31-Mar-2023 08:06:38 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 4
+[31-Mar-2023 08:06:38 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[31-Mar-2023 08:06:38 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\routers.php(90): require_once()
+#1 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#2 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[31-Mar-2023 08:07:29 UTC] PHP Warning:  require_once(../partials/nav.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[31-Mar-2023 08:07:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/nav.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:26
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\routers.php(90): require_once()
+#1 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#2 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 26
+[31-Mar-2023 08:08:54 UTC] PHP Warning:  require_once(../partials/footer.phtml): Failed to open stream: No such file or directory in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 62
+[31-Mar-2023 08:08:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../partials/footer.phtml' (include_path='.;C:\php\pear') in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php:62
+Stack trace:
+#0 D:\MAMP\htdocs\InMyDreams\routers.php(90): require_once()
+#1 D:\MAMP\htdocs\InMyDreams\index.php(4): require_once('D:\\MAMP\\htdocs\\...')
+#2 {main}
+  thrown in D:\MAMP\htdocs\InMyDreams\dreams\redirect-page-user\page-user.php on line 62

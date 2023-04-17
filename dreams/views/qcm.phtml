@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+    <title>InMyDreams</title>
+</head>
+<body>
+    <header> 
+        <nav> 
+            <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>    
+        </nav>
+    </header>
+        <main class="main-qcm"> 
+            <div class="qcm-container">
+                <?php if ($action !== 'match') { ?>
+                <section class="section-qcm">
+                    <form class="form_qcm" action="index.php?page=qcm&action=submit" method="POST">
+                        <h1 class="h1_qcm"><?= $qcm->getLibelleQcm() ?></h1>
+                            <?php foreach ($qcm->getQuestions() as $question) { ?>
+                                <div class="question_choix-qcm">
+                                <h3 class="libelle_question-qcm"><?= $question->getLibelleQuestion() ?></h3>
+                                    <?php foreach ($question->getChoix() as $choix) { ?>
+                                        <input class="radio_qcm" type="radio" id="<?= $choix->getIdChoix() ?>" name="question<?= $question->getIdQuestion() ?>" value="<?= $choix->getIdChoix() ?>">
+                                        <label class="label_qcm  libelle_choix" for="<?= $choix->getIdChoix() ?>"><?= $choix->getLibelleChoix() ?></label>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
+                            <button class="valider_qcm confirmation-message" type="submit">Valider</button>
+                    </form>
+                </section>
+                <?php } ?>
+                <?php if ($action == 'match') { ?>
+                    <?php require_once(__DIR__ . '/../views/match.phtml'); ?>
+                <?php } ?>
+            </div> 
+        </main>
+<footer>
+    <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+</footer>
+</body>
+</html>

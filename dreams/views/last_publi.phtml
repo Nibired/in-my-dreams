@@ -1,0 +1,43 @@
+<?php
+require_once __DIR__ . "/../dao/dao_Utilisateur.php";
+$id_famille_reve = isset($_GET['id_famille_reve']) ? $_GET['id_famille_reve'] : '';
+$reves = getLastPubliByFamily($id_famille_reve);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" crossorigin="anonymous">
+    <title>Liste des publications</title>
+    <link rel="stylesheet" href="/inmydreams/dreams/style/style.css">
+</head>
+<body>
+
+<header class="header-design">
+    <nav>
+        <?php require_once __DIR__ . '/../partials/nav.phtml'; ?>       
+    </nav>
+    <h2 class="header-title">Echangez avec les autres membres</h2>
+</header>
+<main>
+    <h1 class="main-title">Liste dernières publications : <?= intval($id_famille_reve) == 1 ? 'Rêves' : (intval($id_famille_reve) == 2 ? 'Cauchemars' : '') ?></h1>
+    <div class="publications-container">
+        <?php
+        foreach ($reves as $reve): ?>
+            <div class="last-publication publication-design">
+                <h2><?= $reve['Titre_Reve'] ?></h2>
+                <p><?= $reve['Libelle_Reve'] ?></p>
+                <p>Date de création : <?= $reve['Date_Creation_Reve'] ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</main>
+<footer>
+    <?php require_once __DIR__ . '/../partials/footer.phtml'; ?>   
+</footer>
+<script src="/inmydreams/dreams/js/last-publications.js"></script>
+</body>
+</html>
